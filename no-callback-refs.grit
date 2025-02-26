@@ -1,0 +1,20 @@
+// https://legacy.reactjs.org/docs/refs-and-the-dom.html#caveats-with-callback-refs
+or {
+    `<$_ $attr_list />`,
+    `<$_ $attr_list>$_</$_>`,
+} as $jsx_elm where {
+    $attr_list <: some `ref={$ref}`,
+    $ref <: or {
+        `$_ => { $_ }`,
+        `function $_($_) { $_ }`,
+    },
+    $jsx_elm <: within `class $_ extends $react_component { $_}`,
+    $react_component <: or {
+        `React.Component`,
+        `Component`,
+    },
+    register_diagnostic(
+        span = $ref,
+        message = "If the ref callback is defined as an inline function, it will get called twice during updates, first with null and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one. You can avoid this by defining the ref callback as a bound method on the class, but note that it shouldn’t matter in most cases."
+    )
+}

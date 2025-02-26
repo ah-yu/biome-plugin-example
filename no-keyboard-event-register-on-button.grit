@@ -1,0 +1,11 @@
+`<button $attr_list />` where {
+    $attr_list <: some or {
+        `onKeyDown={$_}`,
+        `onKeyPress={$_}`,
+        `onKeyPress={$_}`,
+    } as $keyboard_event_attr,
+    register_diagnostic(
+        span = $keyboard_event_attr,
+        message = "The screen reader JAWS doesn't works well with keyboard events on buttons. Consider using a div or a span with a role='button' instead."
+    )
+}

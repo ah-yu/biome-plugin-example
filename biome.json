@@ -1,0 +1,6 @@
+{
+    "plugins":[
+        "no-callback-refs.grit",
+        "no-keyboard-event-register-on-button.grit"
+    ]
+}
