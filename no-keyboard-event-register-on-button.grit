@@ -4,7 +4,7 @@ or {
 } where {
     $attr_list <: some or {
         `onKeyDown={$_}`,
-        `onKeyPress={$_}`,
+        `onKeyUp={$_}`,
         `onKeyPress={$_}`,
     } as $keyboard_event_attr,
     register_diagnostic(

@@ -4,4 +4,4 @@ class Foo extends React.Component {
     }
 }
 
-let foo = <button type="button" onKeyDown={() => {}} />
+let foo = <button type="button" onKeyDown={() => {}}>foo</button>
